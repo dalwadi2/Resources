@@ -7,17 +7,15 @@ android {
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
+        multiDexEnabled = true
 
         versionCode VERSION_CODE
         versionName VERSION_NAME
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
-    defaultConfig {
-        defaultPublishConfig 'release'
-        publishNonDefault true
-    }
+//    defaultConfig {
+//        defaultPublishConfig 'release'
+//        publishNonDefault true
+//    }
     buildTypes {
         release {
             minifyEnabled MINIFY_ENABLE
@@ -36,7 +34,9 @@ dependencies {
     compile "com.android.support:design:$supportLibVersion"
     compile "com.android.support:percent:$supportLibVersion"
 
-    compile "com.google.firebase:firebase-messaging:$googleVersion"
+    compile("com.google.firebase:firebase-messaging:$googleVersion") {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
 
     //Retrofit
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
