@@ -7,15 +7,14 @@ android {
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
-        multiDexEnabled = true
 
         versionCode VERSION_CODE
         versionName VERSION_NAME
     }
-//    defaultConfig {
-//        defaultPublishConfig 'release'
-//        publishNonDefault true
-//    }
+    defaultConfig {
+        defaultPublishConfig 'release'
+        publishNonDefault true
+    }
     buildTypes {
         release {
             minifyEnabled MINIFY_ENABLE
